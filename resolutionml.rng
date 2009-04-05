@@ -26,36 +26,39 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="resolution">
+      <element name="committee">
+	<text/>
+     </element>
+      <element name="issue">
+	<text/>
+      </element>
+      <element name="preamble">
+	<oneOrMore>
+	  <element name="clause">
+	    <ref name="clauseContent" />
+	  </element>
+	</oneOrMore>
+      </element>
+      <element name="body">
+	<oneOrMore>
+	  <element name="clause">
+	    <ref name="clauseContent" />
+	  </element>
+	</oneOrMore>
+      </element>
+    </element>
+  </start>
 
-<element name="resolution" xmlns="http://relaxng.org/ns/structure/1.0">
-  <element name="committee">
+<define name="clauseContent">
+  <element name="phrase">
     <text/>
   </element>
-  <element name="issue">
+  <element name="text">
     <text/>
   </element>
-  <element name="preamble">
-    <oneOrMore>
-      <element name="clause">
-	  <element name="phrase">
-	    <text/>
-	  </element>
-	  <element name="text">
-	    <text/>
-	  </element>
-      </element>
-    </oneOrMore>
-  </element>
-  <element name="body">
-    <oneOrMore>
-      <element name="clause">
-	 <element name="phrase">
-	   <text/>
-	 </element>
-	 <element name="text">
-	   <text/>
-	 </element>
-      </element>
-    </oneOrMore>
-  </element>
-</element>
+</define>
+
+</grammar>
