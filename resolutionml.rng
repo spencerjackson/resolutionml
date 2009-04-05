@@ -35,6 +35,25 @@
       <element name="issue">
 	<text/>
       </element>
+      <element name="submitter">
+	<text/>
+      </element>
+      <optional>
+	<choice>
+	  <element name="signatories">
+	    <text/>
+	  </element>
+	  <group>
+	    <element name="signatories">
+	      <zeroOrMore>
+		<element name="signature">
+		  <text/>
+		</element>
+	      </zeroOrMore>
+	    </element>
+	  </group>
+	</choice>
+      </optional>
       <element name="preamble">
 	<oneOrMore>
 	  <element name="clause">
@@ -60,5 +79,4 @@
     <text/>
   </element>
 </define>
-
 </grammar>
