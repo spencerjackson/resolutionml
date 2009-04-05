@@ -40,18 +40,14 @@
       </element>
       <optional>
 	<choice>
-	  <element name="signatories">
+	  <element name="signatures">
 	    <text/>
 	  </element>
-	  <group>
-	    <element name="signatories">
-	      <zeroOrMore>
-		<element name="signature">
-		  <text/>
-		</element>
-	      </zeroOrMore>
+	  <oneOrMore>
+	    <element name="signature">
+	      <text/>
 	    </element>
-	  </group>
+	  </oneOrMore>
 	</choice>
       </optional>
       <element name="preamble">
