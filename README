@@ -1,0 +1,5 @@
+This is a simple RelaxNG schema, aiming to take the edge off of
+resolution writing. Ideally, a program will take this, and use it to
+form well structured XML. In the future, XSL stylesheets will be
+written, to transform ResolutionML into HTML, Docbook, and formatted
+objects.
