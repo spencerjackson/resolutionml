@@ -16,7 +16,13 @@
 	<body>
 		<clause>
 			<phrase> Calls for </phrase>
-			<text>immediate action</text>
+			<text>immediate action by:</text>
+			<clause>
+			  <text> remaining resolved on this issue </text>
+			</clause>
+			<clause>
+			  <text> and creating commissions to analyze this problem in depth </text>
+			</clause>
 		</clause>
 	</body>
 </resolution>

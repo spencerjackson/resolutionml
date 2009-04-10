@@ -74,5 +74,21 @@
   <element name="text">
     <text/>
   </element>
+  <zeroOrMore>
+    <element name="clause">
+      <ref name="recursiveClause" />
+    </element>
+  </zeroOrMore>
+</define>
+
+<define name="recursiveClause">
+  <element name="text">
+    <text/>
+  </element>
+  <zeroOrMore>
+    <element name="clause">
+      <ref name="recursiveClause"/>
+    </element>
+  </zeroOrMore>
 </define>
 </grammar>
