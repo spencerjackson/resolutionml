@@ -44,7 +44,7 @@ encoding="UTF-8"/>
 <xsl:template match="clause">
 <div>
   <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span>
-  <xsl:value-of select="text"/>
+  <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if>
   <xsl:if test="clause">
     <xsl:apply-templates select="./clause"/>
   </xsl:if>
@@ -53,7 +53,7 @@ encoding="UTF-8"/>
 
 <xsl:template match="clause/clause">
 <div>
-  <xsl:value-of select="text"/>
+  <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if>
   <xsl:if test="clause">
     <xsl:apply-templates select="clause/clause"/>
   </xsl:if>
