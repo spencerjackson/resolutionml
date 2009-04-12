@@ -1,28 +1,42 @@
 <resolution>
-	<committee><fullname>Economic Social Committee</fullname><abbreviation>ECOSOC</abbreviation></committee>
-	<issue> Human Trafficing </issue>
-	<submitter> Somalia </submitter>
-	<signature>Burma</signature>
-	<signature>Sudan</signature>
-	<signature>Saudi Arabia</signature>
+  <committee><fullname>Economic Social Committee</fullname><abbreviation>ECOSOC</abbreviation></committee>
+  <issue>Human Trafficing</issue>
+  <submitter>Somalia</submitter>
+  <signature>Burma</signature>
+  <signature>Sudan</signature>
+  <signature>Saudi Arabia</signature>
 
-	<preamble>
-		<clause>
-			<phrase> Understanding </phrase>
-			<text>The need for progress</text>
-		</clause>
-	</preamble>
+  <preamble>
+    <clause>
+      <phrase> Understanding </phrase>
+      <text>The need for progress</text>
+    </clause>
+  </preamble>
 
-	<body>
-		<clause>
-			<phrase> Calls for </phrase>
-			<text>immediate action by:</text>
-			<clause>
-			  <text> remaining resolved on this issue </text>
-			</clause>
-			<clause>
-			  <text> and creating commissions to analyze this problem in depth </text>
-			</clause>
-		</clause>
-	</body>
+  <body>
+    <clause>
+      <phrase>Calls for</phrase>
+      <text>immediate action by:</text>
+      <clause>
+	<text>remaining resolved on this issue</text>
+      </clause>
+      <clause>
+	<text>and creating commissions to analyze this problem in depth</text>
+      </clause>
+    </clause>
+    <clause>
+      <phrase>Requests</phrase>
+      <text>All member states participate through means including but not limited to</text>
+      <clause>
+	<text>Monetary support</text>
+      </clause>
+      <clause>
+	<text>Manpower</text>
+      </clause>
+    </clause>
+    <clause>
+      <phrase>Resolves</phrase>
+      <text>to take action</text>
+    </clause>
+  </body>
 </resolution>
