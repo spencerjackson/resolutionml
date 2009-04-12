@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="xml" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
-doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"
+<xsl:output method="xml" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+doctype-public="-//W3C//DTD XHTML 1.1//EN" indent="yes"
 encoding="UTF-8"/>
 
 <xsl:template match="/">
@@ -19,15 +19,15 @@ encoding="UTF-8"/>
 	</xsl:for-each> </p>
       </div>
       <p>The <xsl:value-of select="resolution/committee/fullname"/>,</p>
-      <xsl:apply-templates select="resolution/preamble"/>
+      <xsl:call-template name="preamble"/>
       <xsl:apply-templates select="resolution/body"/>
     </body>
   </html>
 </xsl:template>
 
-<xsl:template match="resolution/preamble">
+<xsl:template name="preamble">
 <div>
-  <xsl:for-each select="clause">
+  <xsl:for-each select="resolution/preamble/clause">
     <p>
       <span style="font-style:italic"><xsl:value-of select="phrase"/></span>
       <xsl:value-of select="text"/>,
