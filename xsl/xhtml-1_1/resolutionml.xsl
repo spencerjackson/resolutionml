@@ -45,8 +45,18 @@ encoding="UTF-8"/>
   <xsl:value-of select="phrase"/>
   <xsl:value-of select="text"/>
   <xsl:if test="clause">
-    <xsl:apply-templates select="clause"/>
+    <xsl:apply-templates select="./clause"/>
   </xsl:if>
 </div>
 </xsl:template>
+
+<xsl:template match="clause/clause">
+<div>
+  <xsl:value-of select="text"/>
+  <xsl:if test="clause">
+    <xsl:apply-templates select="clause/clause"/>
+  </xsl:if>
+</div>
+</xsl:template>
+
 </xsl:stylesheet>
