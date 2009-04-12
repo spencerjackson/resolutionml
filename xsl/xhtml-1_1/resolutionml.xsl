@@ -10,12 +10,13 @@ encoding="UTF-8"/>
     <head> <title> test </title> </head>
     <body>
       <div>
-	FORM: <xsl:value-of select="resolution/committee"/>
-	ISSUE: <xsl:value-of select="resolution/issue"/>
-	SUBMITTED BY: <xsl:value-of select="resolution/submitter"/>
+	<p>FORM: <xsl:value-of select="resolution/committee"/></p>
+	<p>ISSUE: <xsl:value-of select="resolution/issue"/></p>
+	<p>SUBMITTED BY: <xsl:value-of select="resolution/submitter"/></p>
+	<p>SIGNATORIES:
 	<xsl:for-each select="resolution/signature">
-	  <xsl:value-of select="."/>
-	</xsl:for-each>
+	  <xsl:value-of select="."/><xsl:if test="position()!=last()">, </xsl:if>
+	</xsl:for-each> </p>
       </div>
       <xsl:apply-templates select="resolution/preamble"/>
       <xsl:apply-templates select="resolution/body"/>
