@@ -28,7 +28,7 @@ encoding="UTF-8"/>
 <div>
   <xsl:for-each select="clause">
     <div>
-      <xsl:value-of select="phrase"/>
+      <span style="font-style:italic"><xsl:value-of select="phrase"/></span>
       <xsl:value-of select="text"/>,
     </div>
   </xsl:for-each>
@@ -43,7 +43,7 @@ encoding="UTF-8"/>
 
 <xsl:template match="clause">
 <div>
-  <xsl:value-of select="phrase"/>
+  <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span>
   <xsl:value-of select="text"/>
   <xsl:if test="clause">
     <xsl:apply-templates select="./clause"/>
