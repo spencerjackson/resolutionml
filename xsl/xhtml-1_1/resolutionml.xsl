@@ -49,7 +49,7 @@ encoding="UTF-8"/>
 <xsl:template name="clause">
     <xsl:param name="depth"/>
 <li>
-  <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span>
+  <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span><xsl:text> </xsl:text>
   <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:choose><xsl:when test="current()=/resolution/body/clause[last()]"><xsl:text>.</xsl:text></xsl:when><xsl:otherwise><xsl:text>;</xsl:text></xsl:otherwise></xsl:choose></xsl:if>
   <xsl:if test="clause">
     <ol style="list-style-type:lower-alpha">
