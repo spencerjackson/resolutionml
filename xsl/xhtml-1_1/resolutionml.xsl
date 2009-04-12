@@ -36,28 +36,44 @@ encoding="UTF-8"/>
 </xsl:template>
 
 <xsl:template match="resolution/body">
-<div>
-  <xsl:apply-templates select="clause"/>
-</div>
+<ol>
+  <xsl:for-each select="clause">
+    <xsl:call-template name="clause">
+      <xsl:with-param name="depth" select="0"/>
+    </xsl:call-template>
+  </xsl:for-each>
+</ol>
 </xsl:template>
 
-<xsl:template match="clause">
-<div>
+<xsl:template name="clause">
+    <xsl:param name="depth"/>
+<li>
   <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span>
   <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if>
   <xsl:if test="clause">
-    <xsl:apply-templates select="./clause"/>
+    <ol style="list-style-type:lower-alpha">
+    <xsl:for-each select="clause">
+      <xsl:call-template name="subclause">
+	<xsl:with-param name="depth" select="$depth+1"/>
+      </xsl:call-template>
+    </xsl:for-each>
+    </ol>
   </xsl:if>
-</div>
+</li>
 </xsl:template>
 
-<xsl:template match="clause/clause">
-<div>
-  <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if>
+<xsl:template name="subclause">
+<xsl:param name="depth"/>
+  <li><xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if></li>
   <xsl:if test="clause">
-    <xsl:apply-templates select="clause/clause"/>
+    <ol style="list-style-type:lower-roman">
+      <xsl:for-each select="clause">
+	<xsl:call-template name="subclause">
+	  <xsl:with-param name="depth" select="$depth+1"/>
+	</xsl:call-template>
+      </xsl:for-each>
+    </ol>
   </xsl:if>
-</div>
 </xsl:template>
 
 </xsl:stylesheet>
