@@ -30,8 +30,13 @@
   <start>
     <element name="resolution">
       <element name="committee">
-	<text/>
-     </element>
+	<element name="fullname">
+	  <text/>
+	</element>
+	<element name="abbreviation">
+	  <text/>
+	</element>
+      </element>
       <element name="issue">
 	<text/>
       </element>
