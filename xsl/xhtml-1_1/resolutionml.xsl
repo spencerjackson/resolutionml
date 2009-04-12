@@ -7,10 +7,10 @@ encoding="UTF-8"/>
 
 <xsl:template match="/">
   <html>
-    <head> <title> test </title> </head>
+    <head> <title><xsl:value-of select="resolution/issue"/></title> </head>
     <body>
       <div>
-	<p>FORM: <xsl:value-of select="resolution/committee"/></p>
+	<p>FORM: <xsl:value-of select="resolution/committee/abbreviation"/></p>
 	<p>ISSUE: <xsl:value-of select="resolution/issue"/></p>
 	<p>SUBMITTED BY: <xsl:value-of select="resolution/submitter"/></p>
 	<p>SIGNATORIES:
@@ -18,6 +18,7 @@ encoding="UTF-8"/>
 	  <xsl:value-of select="."/><xsl:if test="position()!=last()">, </xsl:if>
 	</xsl:for-each> </p>
       </div>
+      <p>The <xsl:value-of select="resolution/committee/fullname"/>,</p>
       <xsl:apply-templates select="resolution/preamble"/>
       <xsl:apply-templates select="resolution/body"/>
     </body>
@@ -27,10 +28,10 @@ encoding="UTF-8"/>
 <xsl:template match="resolution/preamble">
 <div>
   <xsl:for-each select="clause">
-    <div>
+    <p>
       <span style="font-style:italic"><xsl:value-of select="phrase"/></span>
       <xsl:value-of select="text"/>,
-    </div>
+    </p>
   </xsl:for-each>
 </div>
 </xsl:template>
@@ -49,7 +50,7 @@ encoding="UTF-8"/>
     <xsl:param name="depth"/>
 <li>
   <span style="text-decoration:underline; font-weight:bold"><xsl:value-of select="phrase"/></span>
-  <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if>
+  <xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:choose><xsl:when test="current()=/resolution/body/clause[last()]"><xsl:text>.</xsl:text></xsl:when><xsl:otherwise><xsl:text>;</xsl:text></xsl:otherwise></xsl:choose></xsl:if>
   <xsl:if test="clause">
     <ol style="list-style-type:lower-alpha">
     <xsl:for-each select="clause">
@@ -64,7 +65,7 @@ encoding="UTF-8"/>
 
 <xsl:template name="subclause">
 <xsl:param name="depth"/>
-  <li><xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:text>;</xsl:text></xsl:if></li>
+  <li><xsl:value-of select="text"/><xsl:if test="not(substring(text, string-length(text)) = ':')"><xsl:choose><xsl:when test="current()=/resolution/body/clause[last()]"><xsl:text>.</xsl:text></xsl:when><xsl:otherwise><xsl:text>;</xsl:text></xsl:otherwise></xsl:choose></xsl:if></li>
   <xsl:if test="clause">
     <ol style="list-style-type:lower-roman">
       <xsl:for-each select="clause">
